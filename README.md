@@ -1,9 +1,10 @@
-# Video Game Backend API
+# Epic Quest - Full Stack Game Application
 
-A comprehensive RESTful API built with ASP.NET Core 8.0 for managing video game data with JWT authentication, Entity Framework Core, and SQLite database.
+A comprehensive full-stack game application with a RESTful API backend built with ASP.NET Core 8.0 and an interactive frontend with HTML/CSS/JavaScript. Features JWT authentication, Entity Framework Core, SQLite database, and a modern cyberpunk-themed UI.
 
 ## 🎮 Features
 
+### Backend API
 - **Complete CRUD Operations**: Manage Players, Characters, Items, and Scores
 - **JWT Authentication**: Secure token-based authentication and authorization
 - **Role-Based Access Control**: Admin and Player roles with different permissions
@@ -15,18 +16,30 @@ A comprehensive RESTful API built with ASP.NET Core 8.0 for managing video game 
 - **Leaderboard System**: Public leaderboards for game scores
 - **Data Seeding**: Pre-populated database with sample data
 
+### Frontend Application
+- **Interactive Dashboard**: Manage all game entities through a modern UI
+- **Real-time Leaderboards**: View global rankings across game modes
+- **Particle Animation**: Dynamic canvas-based background effects
+- **Responsive Design**: Works seamlessly on all devices
+- **Toast Notifications**: User-friendly feedback system
+- **Cyberpunk Theme**: Modern gaming aesthetic with neon colors
+
 ## 📋 Table of Contents
 
 - [Technologies Used](#technologies-used)
 - [Getting Started](#getting-started)
+  - [Backend Setup](#backend-setup)
+  - [Frontend Setup](#frontend-setup)
 - [API Endpoints](#api-endpoints)
 - [Authentication](#authentication)
+- [Frontend Features](#frontend-features)
 - [Testing](#testing)
 - [Database Schema](#database-schema)
 - [Project Structure](#project-structure)
 
 ## 🛠 Technologies Used
 
+### Backend
 - **ASP.NET Core 8.0** - Web API Framework
 - **Entity Framework Core 8.0** - ORM for database operations
 - **SQLite** - Lightweight database
@@ -35,15 +48,24 @@ A comprehensive RESTful API built with ASP.NET Core 8.0 for managing video game 
 - **Swashbuckle (Swagger)** - API documentation
 - **C# 12** - Programming language
 
+### Frontend
+- **HTML5** - Markup structure
+- **CSS3** - Styling and animations
+- **Vanilla JavaScript (ES6+)** - Application logic
+- **Canvas API** - Particle animation system
+- **Fetch API** - HTTP requests
+- **LocalStorage** - Client-side data persistence
+
 ## 🚀 Getting Started
 
 ### Prerequisites
 
 - [.NET 8.0 SDK](https://dotnet.microsoft.com/download/dotnet/8.0) or later
 - A code editor (Visual Studio, VS Code, or Rider)
+- A modern web browser (Chrome, Firefox, Edge, Safari)
 - Git
 
-### Installation
+### Backend Setup
 
 1. **Clone the repository**
    ```bash
@@ -84,6 +106,57 @@ A comprehensive RESTful API built with ASP.NET Core 8.0 for managing video game 
    Open your browser and navigate to: `https://localhost:5001`
    
    You'll see the interactive Swagger documentation where you can test all endpoints.
+
+### Frontend Setup
+
+1. **Navigate to Frontend directory**
+   ```bash
+   cd ../Frontend
+   ```
+
+2. **Start a local web server**
+   
+   **Option 1: Using Python**
+   ```bash
+   python -m http.server 8000
+   ```
+   
+   **Option 2: Using VS Code Live Server**
+   - Install "Live Server" extension
+   - Right-click on `index.html` and select "Open with Live Server"
+
+3. **Access the frontend**
+   
+   Open your browser and navigate to: `http://localhost:8000`
+
+4. **Login with default credentials**
+   - Username: `player1`
+   - Password: `password123`
+
+## 🎯 Frontend Features
+
+### Home Page
+- Animated hero section with glitch effect title
+- Real-time statistics display
+- Quick access to registration and leaderboard
+
+### Player Dashboard
+- **Player Management**: Create and view your game players with stats
+- **Character Creation**: Build characters with different classes (Warrior, Mage, Ranger, Rogue, Paladin, Necromancer)
+- **Inventory System**: View and manage items with rarity levels
+- **Score Tracking**: Submit battle scores and view achievements
+
+### Global Leaderboard
+- Switch between game modes: Arena, Dungeon, Quest, Raid
+- View top 20 players with detailed statistics
+- Real-time rankings with K/D ratios and play time
+
+### Visual Design
+- Cyberpunk theme with neon cyan and magenta colors
+- Animated particle background using Canvas API
+- Smooth transitions and hover effects
+- Glassmorphism UI elements
+- Responsive design for all devices
 
 ## 🔐 Authentication
 
@@ -297,34 +370,52 @@ curl -X POST "https://localhost:5001/api/players" \
 ## 📁 Project Structure
 
 ```
-GameAPI/
-├── Controllers/           # API Controllers
-│   ├── AuthController.cs
-│   ├── PlayersController.cs
-│   ├── CharactersController.cs
-│   ├── ItemsController.cs
-│   └── ScoresController.cs
-├── Data/                  # Database Context
-│   └── GameDbContext.cs
-├── DTOs/                  # Data Transfer Objects
-│   ├── AuthDtos.cs
-│   ├── PlayerDtos.cs
-│   ├── CharacterDtos.cs
-│   ├── ItemDtos.cs
-│   └── ScoreDtos.cs
-├── Models/                # Entity Models
-│   ├── User.cs
-│   ├── Player.cs
-│   ├── Character.cs
-│   ├── Item.cs
-│   └── Score.cs
-├── Services/              # Business Logic Services
-│   ├── TokenService.cs
-│   └── PasswordHasher.cs
-├── Middleware/            # Custom Middleware
-│   └── ErrorHandlingMiddleware.cs
-├── Migrations/            # EF Core Migrations
-├── Program.cs             # Application Entry Point
+Final-project-bootcamp/
+├── GameAPI/               # Backend API
+│   ├── Controllers/       # API Controllers
+│   │   ├── AuthController.cs
+│   │   ├── PlayersController.cs
+│   │   ├── CharactersController.cs
+│   │   ├── ItemsController.cs
+│   │   └── ScoresController.cs
+│   ├── Data/             # Database Context
+│   │   └── GameDbContext.cs
+│   ├── DTOs/             # Data Transfer Objects
+│   │   ├── AuthDtos.cs
+│   │   ├── PlayerDtos.cs
+│   │   ├── CharacterDtos.cs
+│   │   ├── ItemDtos.cs
+│   │   └── ScoreDtos.cs
+│   ├── Models/           # Entity Models
+│   │   ├── User.cs
+│   │   ├── Player.cs
+│   │   ├── Character.cs
+│   │   ├── Item.cs
+│   │   └── Score.cs
+│   ├── Services/         # Business Logic Services
+│   │   ├── TokenService.cs
+│   │   └── PasswordHasher.cs
+│   ├── Middleware/       # Custom Middleware
+│   │   └── ErrorHandlingMiddleware.cs
+│   ├── Migrations/       # EF Core Migrations
+│   ├── Program.cs        # Application Entry Point
+│   ├── appsettings.json  # Configuration
+│   └── gameapi.db       # SQLite Database (generated)
+├── Frontend/             # Frontend Application
+│   ├── index.html        # Main HTML file
+│   ├── css/
+│   │   └── styles.css    # All styles and animations
+│   ├── js/
+│   │   ├── api.js        # API communication layer
+│   │   ├── particles.js  # Particle animation system
+│   │   └── app.js        # Main application logic
+│   ├── assets/           # Images, icons (future)
+│   └── README.md         # Frontend documentation
+├── README.md             # Main documentation
+├── TESTING.md            # API testing guide
+├── GameAPI_Postman_Collection.json  # Postman collection
+└── .gitignore
+```
 ├── appsettings.json       # Configuration
 └── gameapi.db            # SQLite Database (generated)
 ```
